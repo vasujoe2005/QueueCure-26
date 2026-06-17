@@ -1,15 +1,20 @@
 1. Configure MongoDB
    - Copy express-backend/.env.example to express-backend/.env
    - Set MONGO_URI to your MongoDB Atlas queuecure database URI
+   - Set PUBLIC_APP_URL for generated tracking links
+   - Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, and SMTP_FROM to send real email
+   - Without SMTP settings, email content is printed in the Express console for local testing
 
 2. Start Express API
    cd express-backend
    npm run dev
+   If your terminal already shows ...\QueueCure\express-backend, run only npm run dev.
 
 3. Start Django analytics API
    cd django-backend
    pip install -r requirements.txt
    python manage.py runserver 8000
+   Note: use a Python version supported by Django/Djongo, such as Python 3.11 or 3.12.
 
 4. Start React frontend
    cd frontend

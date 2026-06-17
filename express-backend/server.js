@@ -33,6 +33,11 @@ app.get('/health', (_req, res) => {
 app.use('/api/queue', queueRoutes);
 app.use('/api/analytics', analyticsRoutes);
 
+app.use((error, _req, res, _next) => {
+  console.error(error);
+  res.status(500).json({ message: 'Internal server error' });
+});
+
 io.on('connection', async (socket) => {
   socket.emit('queue:update', await getQueueSnapshot());
 });

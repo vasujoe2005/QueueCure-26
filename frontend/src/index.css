@@ -1,15 +1,18 @@
 :root {
-  --bg: #f6f7f9;
+  --bg: #f4f7f8;
   --surface: #ffffff;
-  --surface-muted: #eef3f6;
-  --ink: #172026;
-  --muted: #697782;
-  --line: #dce3e8;
-  --brand: #157f72;
-  --brand-dark: #0f5f57;
-  --accent: #d94f3f;
-  --warning: #f2b84b;
-  --shadow: 0 16px 40px rgba(31, 48, 58, 0.08);
+  --surface-muted: #edf4f3;
+  --ink: #162225;
+  --muted: #627278;
+  --line: #d7e2e5;
+  --brand: #0f766e;
+  --brand-dark: #0b5c55;
+  --brand-soft: #e4f3f1;
+  --accent: #c94a3a;
+  --warning: #b7791f;
+  --amber-soft: #fff7e6;
+  --shadow: 0 14px 34px rgba(25, 43, 48, 0.08);
+  --shadow-soft: 0 8px 18px rgba(25, 43, 48, 0.06);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
   background: var(--bg);
@@ -27,10 +30,14 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  background:
+    linear-gradient(180deg, rgba(15, 118, 110, 0.08), rgba(244, 247, 248, 0) 260px),
+    var(--bg);
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -43,10 +50,12 @@ button {
   font-weight: 700;
   min-height: 44px;
   padding: 0 18px;
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 button:hover {
   background: var(--brand-dark);
+  box-shadow: var(--shadow-soft);
 }
 
 button:disabled {
@@ -63,7 +72,16 @@ button.secondary:hover {
   background: #e1eaee;
 }
 
-input {
+button.danger {
+  background: var(--accent);
+}
+
+button.danger:hover {
+  background: #b83f32;
+}
+
+input,
+select {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 7px;
@@ -71,9 +89,12 @@ input {
   padding: 0 14px;
   color: var(--ink);
   outline: none;
+  background: #fff;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
-input:focus {
+input:focus,
+select:focus {
   border-color: var(--brand);
   box-shadow: 0 0 0 3px rgba(21, 127, 114, 0.16);
 }
