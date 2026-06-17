@@ -1,0 +1,16 @@
+1. Configure MongoDB
+   - Copy express-backend/.env.example to express-backend/.env
+   - Set MONGO_URI to your MongoDB Atlas queuecure database URI
+
+2. Start Express API
+   cd express-backend
+   npm run dev
+
+3. Start Django analytics API
+   cd django-backend
+   pip install -r requirements.txt
+   python manage.py runserver 8000
+
+4. Start React frontend
+   cd frontend
+   npm run dev
